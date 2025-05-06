@@ -36,7 +36,7 @@ O projeto segue os princípios da Arquitetura Limpa (Clean Architecture) e é or
 
 ### Autenticação
 
-#### POST /api/auth/login
+#### POST /api/auth
 - **Descrição**: Autentica um usuário e retorna um token JWT
 - **Request Body**:
   ```json
@@ -46,10 +46,21 @@ O projeto segue os princípios da Arquitetura Limpa (Clean Architecture) e é or
   }
   ```
 - **Response**: Token JWT e informações do usuário
+  ```json
+  {
+    "success": true,
+    "message": "Authentication successful",
+    "data": {
+      "token": "string",
+      "role": "string"
+    }
+  }
+  ```
 - **Status Codes**:
   - 200: Sucesso
   - 400: Dados inválidos
-  - 401: Credenciais inválidas
+  - 401: Credenciais inválidas ou usuário suspenso
+  - 404: Usuário não encontrado
 
 #### POST /api/auth/register
 - **Descrição**: Registra um novo usuário
@@ -73,6 +84,20 @@ O projeto segue os princípios da Arquitetura Limpa (Clean Architecture) e é or
 - **Descrição**: Lista todos os usuários
 - **Headers**: Authorization: Bearer {token}
 - **Response**: Lista de usuários
+  ```json
+  {
+    "success": true,
+    "message": "Users retrieved successfully",
+    "data": [
+      {
+        "id": "guid",
+        "name": "string",
+        "email": "string",
+        "role": "string"
+      }
+    ]
+  }
+  ```
 - **Status Codes**:
   - 200: Sucesso
   - 401: Não autorizado
@@ -92,6 +117,19 @@ O projeto segue os princípios da Arquitetura Limpa (Clean Architecture) e é or
 - **Descrição**: Lista todas as filiais
 - **Headers**: Authorization: Bearer {token}
 - **Response**: Lista de filiais
+  ```json
+  {
+    "success": true,
+    "message": "Branches retrieved successfully",
+    "data": [
+      {
+        "id": "guid",
+        "name": "string",
+        "address": "string"
+      }
+    ]
+  }
+  ```
 - **Status Codes**:
   - 200: Sucesso
   - 401: Não autorizado
@@ -118,6 +156,20 @@ O projeto segue os princípios da Arquitetura Limpa (Clean Architecture) e é or
 - **Descrição**: Lista todos os clientes
 - **Headers**: Authorization: Bearer {token}
 - **Response**: Lista de clientes
+  ```json
+  {
+    "success": true,
+    "message": "Customers retrieved successfully",
+    "data": [
+      {
+        "id": "guid",
+        "name": "string",
+        "email": "string",
+        "phone": "string"
+      }
+    ]
+  }
+  ```
 - **Status Codes**:
   - 200: Sucesso
   - 401: Não autorizado
@@ -145,6 +197,32 @@ O projeto segue os princípios da Arquitetura Limpa (Clean Architecture) e é or
 - **Descrição**: Lista todas as vendas
 - **Headers**: Authorization: Bearer {token}
 - **Response**: Lista de vendas
+  ```json
+  {
+    "success": true,
+    "message": "Sales retrieved successfully",
+    "data": [
+      {
+        "id": "guid",
+        "saleNumber": "string",
+        "customerId": "guid",
+        "branchId": "guid",
+        "status": "string",
+        "totalAmount": "decimal",
+        "discountAmount": "decimal",
+        "finalAmount": "decimal",
+        "items": [
+          {
+            "productId": "guid",
+            "quantity": "integer",
+            "unitPrice": "decimal",
+            "totalPrice": "decimal"
+          }
+        ]
+      }
+    ]
+  }
+  ```
 - **Status Codes**:
   - 200: Sucesso
   - 401: Não autorizado
