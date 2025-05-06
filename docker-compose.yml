@@ -1,0 +1,38 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: ambev-sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Ambev@123
+      - MSSQL_PID=Express
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+    healthcheck:
+      test: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Ambev@123 -Q "SELECT 1" -b -o /dev/null
+      interval: 10s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build:
+      context: ./template/backend
+      dockerfile: Dockerfile
+    container_name: ambev-api
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+    ports:
+      - "5000:80"
+      - "5001:443"
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=AmbevDeveloperEvaluation;User Id=sa;Password=Ambev@123;TrustServerCertificate=True
+      - ASPNETCORE_ENVIRONMENT=Development
+    volumes:
+      - ./template/backend:/app
+      - ~/.nuget/packages:/root/.nuget/packages:ro
+
+volumes:
+  sqlserver_data: 
