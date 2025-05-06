@@ -302,6 +302,27 @@ O projeto utiliza SQLite como banco de dados. As principais tabelas são:
 - Sales: Armazena dados das vendas
 - SaleItems: Armazena itens de cada venda
 
+### Inicialização do Banco de Dados
+
+Para inicializar o banco de dados e criar as tabelas necessárias, siga os passos abaixo:
+
+1. Navegue até o diretório do projeto WebApi:
+   ```bash
+   cd template/backend/src/Ambev.DeveloperEvaluation.WebApi
+   ```
+
+2. Execute o comando de migração do banco de dados:
+   ```bash
+   dotnet ef database update
+   ```
+
+Este comando irá:
+- Criar o banco de dados SQLite se ele não existir
+- Aplicar todas as migrações pendentes
+- Criar todas as tabelas necessárias com suas respectivas estruturas
+
+Após a execução bem-sucedida, o banco de dados estará pronto para uso e a API poderá ser utilizada normalmente.
+
 ## Segurança
 
 - Autenticação via JWT
