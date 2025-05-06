@@ -113,3 +113,40 @@ Se encontrar erros relacionados ao banco de dados:
 ## Owner
 
 Desenvolvido por https://github.com/chenriqueend
+
+## Executando o Projeto
+
+1. Navegue até o diretório do projeto:
+   ```bash
+   cd template/backend
+   ```
+
+2. Execute o projeto:
+   ```bash
+   dotnet run
+   ```
+
+3. Acesse a API através do Swagger em: `http://localhost:5119/swagger`
+
+## Inicializando o Banco de Dados
+
+Antes de usar a API, é necessário inicializar o banco de dados SQLite. Siga os passos abaixo:
+
+1. Navegue até o diretório do projeto WebApi:
+   ```bash
+   cd template/backend/src/Ambev.DeveloperEvaluation.WebApi
+   ```
+
+2. Execute o comando de migração do banco de dados:
+   ```bash
+   dotnet ef database update
+   ```
+
+Este comando irá:
+- Criar o banco de dados SQLite se ele não existir
+- Aplicar todas as migrações pendentes
+- Criar todas as tabelas necessárias com suas respectivas estruturas
+
+Após a execução bem-sucedida, o banco de dados estará pronto para uso e a API poderá ser utilizada normalmente.
+
+## Testando a API
