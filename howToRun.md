@@ -23,38 +23,47 @@ O projeto está organizado em várias camadas:
 ### 1. Clone o Repositório
 
 ```bash
-git clone https://github.com/chenriqueend/Ambev-DeveloperEvaluation-WebApi.git
+  git clone https://github.com/chenriqueend/Ambev-DeveloperEvaluation-WebApi.git
 ```
 
 ### 2. Navegue até o Diretório do Projeto
 
 ```bash
-cd template/backend
+  cd template/backend
 ```
 
 ### 3. Restaure as Dependências
 
 ```bash
-dotnet restore Ambev.DeveloperEvaluation.sln
+  dotnet restore Ambev.DeveloperEvaluation.sln
 ```
 
 ### 4. Compile o Projeto
 
 ```bash
-dotnet build Ambev.DeveloperEvaluation.sln
+  dotnet build Ambev.DeveloperEvaluation.sln
 ```
 
 ### 5. Execute os Testes
 
 ```bash
-dotnet test Ambev.DeveloperEvaluation.sln
+  dotnet test Ambev.DeveloperEvaluation.sln
+```
+## 6. Inicializando o Banco de Dados
+
+1. Navegue até o diretório do projeto WebApi:
+```bash
+  cd src/Ambev.DeveloperEvaluation.WebApi
+```
+2. Execute o comando de migração do banco de dados:
+```bash
+  dotnet ef database update
 ```
 
-### 6. Execute a API
+### 7. Execute a API
 
 ```bash
-cd src/Ambev.DeveloperEvaluation.WebApi
-dotnet run
+  dotnet run
 ```
 
 A API estará disponível em `https://localhost:5119` ou `http://localhost:5000`.
@@ -64,19 +73,19 @@ A API estará disponível em `https://localhost:5119` ou `http://localhost:5000`
 ### Compilar um Projeto Específico
 
 ```bash
-dotnet build src/Ambev.DeveloperEvaluation.WebApi/Ambev.DeveloperEvaluation.WebApi.csproj
+  dotnet build src/Ambev.DeveloperEvaluation.WebApi/Ambev.DeveloperEvaluation.WebApi.csproj
 ```
 
 ### Executar Testes de um Projeto Específico
 
 ```bash
-dotnet test tests/Ambev.DeveloperEvaluation.Domain.Tests/Ambev.DeveloperEvaluation.Domain.Tests.csproj
+  dotnet test tests/Ambev.DeveloperEvaluation.Domain.Tests/Ambev.DeveloperEvaluation.Domain.Tests.csproj
 ```
 
 ### Limpar a Solução
 
 ```bash
-dotnet clean Ambev.DeveloperEvaluation.sln
+  dotnet clean Ambev.DeveloperEvaluation.sln
 ```
 
 ## Estrutura de Testes
@@ -103,50 +112,6 @@ Se encontrar erros relacionados ao banco de dados:
 2. Verifique se o arquivo de banco de dados tem as permissões corretas
 3. Verifique se as migrações foram aplicadas
 
-## Contribuindo
-
-1. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
-2. Faça commit das suas alterações (`git commit -m 'Adiciona nova feature'`)
-3. Faça push para a branch (`git push origin feature/nova-feature`)
-4. Abra um Pull Request 
-
 ## Owner
 
 Desenvolvido por https://github.com/chenriqueend
-
-## Executando o Projeto
-
-1. Navegue até o diretório do projeto:
-   ```bash
-   cd template/backend
-   ```
-
-2. Execute o projeto:
-   ```bash
-   dotnet run
-   ```
-
-3. Acesse a API através do Swagger em: `http://localhost:5119/swagger`
-
-## Inicializando o Banco de Dados
-
-Antes de usar a API, é necessário inicializar o banco de dados SQLite. Siga os passos abaixo:
-
-1. Navegue até o diretório do projeto WebApi:
-   ```bash
-   cd template/backend/src/Ambev.DeveloperEvaluation.WebApi
-   ```
-
-2. Execute o comando de migração do banco de dados:
-   ```bash
-   dotnet ef database update
-   ```
-
-Este comando irá:
-- Criar o banco de dados SQLite se ele não existir
-- Aplicar todas as migrações pendentes
-- Criar todas as tabelas necessárias com suas respectivas estruturas
-
-Após a execução bem-sucedida, o banco de dados estará pronto para uso e a API poderá ser utilizada normalmente.
-
-## Testando a API
