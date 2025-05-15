@@ -74,12 +74,9 @@ public class Program
 
             app.UseMiddleware<ValidationExceptionMiddleware>();
 
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-                Console.WriteLine("Swagger configured");
-            }
+            app.UseSwagger();
+            app.UseSwaggerUI();
+            Console.WriteLine("Swagger configured");
 
             app.UseAuthentication();
             app.UseAuthorization();
