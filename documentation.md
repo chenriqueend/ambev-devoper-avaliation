@@ -1,5 +1,15 @@
 # Documentação do Projeto
 
+## Disclaimer
+
+Este projeto foi desenvolvido como uma avaliação técnica, e gostaria de compartilhar algumas considerações importantes:
+
+1. **Especialização em Frontend**: Sou especialista em desenvolvimento Frontend, e este projeto representa meu esforço em desenvolver uma aplicação Backend completa. Peço desculpas antecipadas por possíveis problemas de organização de código ou práticas de Clean Code que não estejam alinhadas com as melhores práticas de desenvolvimento Backend.
+
+2. **Banco de Dados**: O projeto utiliza SQLite ao invés do PostgreSQL solicitado. Esta decisão foi tomada devido a problemas de configuração do PostgreSQL em minha máquina, que recentemente foi migrada para ArchLinux. Optei por priorizar o desenvolvimento da funcionalidade ao invés de perder tempo com questões de configuração do banco de dados.
+
+3. **Aprendizado**: Este projeto representa uma oportunidade de aprendizado e crescimento profissional, e agradeço a oportunidade de demonstrar minhas habilidades e disposição para aprender novas tecnologias.
+
 ## Visão Geral
 
 Este projeto é uma API REST desenvolvida em .NET 8 que implementa um sistema de vendas com funcionalidades de autenticação, gerenciamento de usuários, filiais, clientes e vendas.
