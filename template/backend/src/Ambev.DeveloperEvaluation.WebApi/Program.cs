@@ -62,6 +62,9 @@ public class Program
             using (var scope = app.Services.CreateScope())
             {
                 var context = scope.ServiceProvider.GetRequiredService<DeveloperEvaluationContext>();
+                // Aplica as migrations automaticamente
+                context.Database.Migrate();
+
                 var connection = context.Database.GetDbConnection() as SqliteConnection;
                 if (connection != null)
                 {
