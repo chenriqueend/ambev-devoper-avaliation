@@ -26,6 +26,7 @@ namespace Ambev.DeveloperEvaluation.IoC
                 options.UseSqlite(configuration.GetConnectionString("DefaultConnection"), sqliteOptions =>
                 {
                     sqliteOptions.CommandTimeout(30);
+                    sqliteOptions.MigrationsAssembly("Ambev.DeveloperEvaluation.ORM");
                 });
                 options.EnableDetailedErrors();
                 options.EnableSensitiveDataLogging();

@@ -18,7 +18,7 @@ public class DeveloperEvaluationContextFactory : IDesignTimeDbContextFactory<Dev
 
         builder.UseSqlite(
                connectionString,
-               b => b.MigrationsAssembly("Ambev.DeveloperEvaluation.WebApi")
+               b => b.MigrationsAssembly("Ambev.DeveloperEvaluation.ORM")
         );
 
         return new DeveloperEvaluationContext(builder.Options);
