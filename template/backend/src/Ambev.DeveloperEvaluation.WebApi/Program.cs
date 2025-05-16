@@ -59,6 +59,9 @@ public class Program
                 command.CommandText = "PRAGMA journal_mode = WAL;";
                 command.ExecuteNonQuery();
             }
+
+            var migrations = context.Database.GetMigrations();
+            Console.WriteLine("Migrations encontradas: " + string.Join(", ", migrations));
         }
 
         if (runMigrationsOnly)
