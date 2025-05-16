@@ -21,5 +21,10 @@ RUN dotnet publish "Ambev.DeveloperEvaluation.WebApi.csproj" -c Release -o /app/
 
 FROM base AS final
 WORKDIR /app
+
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Ambev.DeveloperEvaluation.WebApi.dll"]
+COPY entrypoint.sh .
+
+RUN chmod +x ./entrypoint.sh
+
+ENTRYPOINT ["./entrypoint.sh"]
